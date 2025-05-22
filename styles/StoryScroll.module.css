@@ -1,0 +1,98 @@
+.container {
+  width: 100%;
+  overflow-x: hidden; /* 防止水平滚动条 */
+  background-color: #FFFFFF; /* 修改为白色 */
+}
+
+.section {
+  height: 100vh; /* 每个场景占据整个视口高度 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative; /* 为内部绝对定位的元素提供参照 */
+  color: white; /* 默认文字颜色，可以根据背景调整 */
+  opacity: 0; /* 初始不可见，由GSAP控制 */
+}
+
+.content {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5); /* 内容区域半透明背景，增强可读性 */
+  border-radius: 10px;
+  max-width: 80%;
+}
+
+.content h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.content p {
+  font-size: 1.2rem;
+}
+
+/* 为每个场景定义独特的背景和风格 */
+/* 您可以在这里为每个场景设置背景图片、颜色、特定的字体等 */
+
+.town {
+  background-color: #FFFFFF; /* 白色 */
+  background-image: url('/images/town.png');
+  background-size: cover; /* 修改：设置为全宽 */
+  background-position: center;
+  background-repeat: no-repeat; /* no-repeat 仍然需要，以防图片比容器小 */
+  position: relative; /* 确保子元素可以相对于此元素定位 */
+}
+
+.townLogoOverlay {
+  position: absolute;
+  top: 10%; /* 距离顶部10% */
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 50%; /* logo最大宽度为父容器的50% */
+  height: auto; /* 高度自动，保持比例 */
+  z-index: 1; /* 确保在背景图之上 */
+}
+
+.walkingNight {
+  background-color: #FFFFFF; /* 白色 */
+  background-image: url('/images/walkingnight.png');
+  background-size: auto 90%; /* 保持上下间距 */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.night {
+  background-color: #FFFFFF; /* 白色 */
+  background-image: url('/images/nightboy1.png');
+  background-size: auto 90%; /* 修改 */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.boy2 {
+  background-color: #FFFFFF; /* 白色 */
+  background-image: url('/images/nightboy2.png');
+  background-size: auto 90%; /* 修改 */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.eye {
+  background-color: #FFFFFF; /* 白色 */
+  background-image: url('/images/eye.png');
+  background-size: auto 90%; /* 修改 */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.classroom {
+  background-color: #FFFFFF; /* 白色 */
+  background-image: url('/images/classroom.png');
+  background-size: auto 90%; /* 修改 */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 你可以根据需要添加更复杂的动画和样式 */
+/* 例如，视差滚动背景、元素进入动画等 */
