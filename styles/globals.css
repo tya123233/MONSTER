@@ -1,0 +1,45 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* 隐藏Next.js开发模式按钮 - 使用更全面的选择器 */
+body > div:not(#__next),
+#__next ~ div,
+#__next ~ span,
+#__next + div,
+.nextjs-portal-dialog-overlay,
+[data-nextjs-dialog-overlay],
+[data-nextjs-dialog],
+[data-nextjs-toast],
+[data-nextjs-portal],
+[data-nextjs-dialog-banner],
+[data-nextjs-refresh-overlay],
+[data-nextjs-refresh-overlay-overlay],
+#__next-build-watcher,
+#__nextjs-portal-root,
+.nextjs-container,
+div[style*="pointer-events: none"][style*="z-index: 2147483647"],
+div[style*="z-index: 2147483647"] {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  z-index: -9999 !important;
+} 

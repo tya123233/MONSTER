@@ -1,0 +1,99 @@
+.titleContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0; /* 减小内边距 */
+  overflow: hidden; /* 防止内容溢出 */
+  margin: 0; /* 移除上下外边距 */
+  flex-direction: column; /* 确保标题和引言垂直排列 */
+}
+
+.title {
+  font-family: 'Bradley Hand ITC', 'Bradley Hand', cursive, 'Comic Sans MS', sans-serif; /* 主要使用Bradley Hand ITC，并提供后备字体 */
+  font-size: 6rem; /* 减小字体大小，从8.5rem减至6rem */
+  font-weight: 600; /* 调整字重，使字体更清晰 */
+  color: #333; /* 深灰色，可根据主题调整 */
+  text-align: center;
+  margin: 0; /* 移除默认边距 */
+  padding: 0; /* 移除默认内边距 */
+  line-height: 1.2; /* 行高 */
+  position: relative;
+  width: auto;
+  letter-spacing: 0.02em; /* 轻微增加字母间距，使标题更有表现力 */
+}
+
+.letter {
+  display: inline-block; /* 关键：使每个字母可以单独动画 */
+  white-space: pre; /* 保留空格 */
+  position: relative; /* 为可能的定位效果 */
+  transform-origin: center bottom; /* 动画起点，可根据需要调整 */
+  /* 初始状态由GSAP设置，这里不需要定义 */
+}
+
+/* 为第二行文字添加较小的字体大小 */
+.smallerText {
+  font-size: 35%; /* 设置为普通文字的35% */
+  line-height: 1; /* 调整行高以适应较小的字体 */
+}
+
+/* 删除引言样式 */
+/* 
+.quote {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  margin-top: 2rem;
+  max-width: 80%;
+  line-height: 1.5;
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+*/
+
+/* 可选：为标题添加响应式样式 */
+@media (max-width: 768px) {
+  .title {
+    font-size: 4.5rem; /* 在小屏幕上减小字体大小，从6rem减至4.5rem */
+  }
+  
+  .titleContainer {
+    min-height: 240px; /* 在小屏幕上减小容器高度，从300px减至240px */
+    padding: 3rem 0; /* 在小屏幕上减小内边距，从4rem减至3rem */
+  }
+  
+  /* 删除引言的响应式样式 */
+  /*
+  .quote {
+    font-size: 1.2rem;
+    max-width: 90%;
+  }
+  */
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 3rem; /* 在更小的屏幕上进一步减小字体大小，从4rem减至3rem */
+  }
+  
+  .titleContainer {
+    min-height: 180px; /* 在更小的屏幕上进一步减小容器高度，从200px减至180px */
+    padding: 1.5rem 0; /* 在更小的屏幕上减小内边距，从2rem减至1.5rem */
+  }
+  
+  /* 删除引言的响应式样式 */
+  /*
+  .quote {
+    font-size: 1rem;
+  }
+  */
+}
+
+/* Example of a more specific theme color if needed */
+/*
+.title {
+  color: #5a2a72; // A deep purple for a ghostly theme
+}
+*/ 

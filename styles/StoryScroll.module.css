@@ -1,0 +1,365 @@
+.container {
+  width: 100%;
+  overflow-x: hidden; /* 防止水平滚动条 */
+  background-color: #FFFFFF; /* 白色背景 */
+  perspective: auto; /* 移除3D透视效果 */
+}
+
+/* 修改英雄部分样式，为两个标题提供更合适的布局 */
+.heroSection {
+  min-height: 90vh; /* 减小最小高度，从100vh减至90vh */
+  display: flex;
+  flex-direction: column; /* 垂直排列标题 */
+  justify-content: flex-start; /* 改为顶部对齐 */
+  align-items: center;
+  background-color: #FFFFFF;
+  padding: 1.5rem 0 12vh; /* 增加底部内边距至12vh，达到原始间距的约175% */
+  margin: 0;
+  position: relative;
+  gap: 20vh; /* 减小标题之间的间距，从25vh减至20vh */
+}
+
+/* 确保GhostedTitle显示在视口中央 */
+.heroSection > div:first-child {
+  margin-top: 25vh; /* 减小顶部边距，从30vh减至25vh */
+}
+
+/* 修改文本区域样式，增加下方空间 */
+.textSection {
+  width: 100%;
+  background-color: transparent; /* 改为透明背景 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1.5rem 3rem; /* 减小内边距 */
+  max-width: 1000px; /* 减小最大宽度，从1200px减至1000px */
+  margin: 0 auto; /* 移除了之前的 margin-top: 4vh; */
+  margin-bottom: 30vh; /* 减小底部间距，从40vh减至30vh */
+  min-height: 50vh; /* 减小最小高度，从60vh减至50vh */
+}
+
+/* 移除textContainer样式，直接对storyText应用样式 */
+.storyText {
+  font-family: 'HGSMinchoE', 'MS Mincho', serif; /* 使用HGSMinchoE字体，添加后备字体 */
+  font-size: 1.35rem; /* 合适的正文字体大小 */
+  line-height: 1.8; /* 增加行高提高可读性 */
+  color: #333; /* 深灰色文字 */
+  text-align: justify; /* 两端对齐 */
+  letter-spacing: 0.02em; /* 微调字母间距 */
+  margin: 0 auto;
+  max-width: 900px;
+  width: 100%;
+  font-weight: 600; /* 增加字体粗细 */
+  white-space: pre-line; /* 保留文本中的换行 */
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .heroSection {
+    min-height: 80vh;
+    gap: 15vh;
+  }
+  
+  .heroSection > div:first-child {
+    margin-top: 20vh;
+  }
+  
+  .textSection {
+    padding: 1.5rem 1rem 2rem;
+    margin-bottom: 25vh;
+    min-height: 45vh;
+  }
+  
+  .section2TitleContainer {
+    min-height: 40vh;
+    padding: 3rem 0;
+  }
+  
+  .section {
+    margin: 10vh 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroSection {
+    min-height: 70vh;
+    gap: 10vh;
+  }
+  
+  .heroSection > div:first-child {
+    margin-top: 15vh;
+  }
+  
+  .textSection {
+    padding: 1rem 0.8rem 1.5rem;
+    margin-bottom: 20vh;
+    min-height: 40vh;
+  }
+  
+  .section2TitleContainer {
+    min-height: 35vh;
+    padding: 2rem 0;
+  }
+  
+  .section {
+    margin: 8vh 0;
+  }
+}
+
+.firstSection {
+  padding: 0;
+  margin: 0;
+}
+
+.section {
+  height: 100vh; /* 每个场景占据整个视口高度 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative; /* 为内部绝对定位的元素提供参照 */
+  color: white; /* 默认文字颜色，可以根据背景调整 */
+  opacity: 0; /* 初始不可见，由GSAP控制 */
+  background-color: #FFFFFF !important; /* 强制使用白色背景 */
+  border-radius: 0; /* 移除圆角 */
+  overflow: hidden; /* 确保内容不溢出 */
+  transform-style: flat; /* 移除3D变换支持 */
+  backface-visibility: visible; /* 移除3D翻转限制 */
+  margin: 15vh 0; /* 保留部分之间的间距 */
+  will-change: opacity, transform; /* 优化性能 */
+  transition: opacity 0.5s ease; /* 平滑透明度过渡 */
+}
+
+.content {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5); /* 内容区域半透明背景，增强可读性 */
+  border-radius: 10px;
+  max-width: 80%;
+}
+
+.content h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.content p {
+  font-size: 1.2rem;
+}
+
+/* 为每个场景定义独特的背景和风格 */
+
+.town {
+  background-color: #FFFFFF !important; /* 确保白色背景 */
+  background-image: url('/images/town.png');
+  background-size: auto 70%; /* 从90%减小到70%，缩小20% */
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.townLogoOverlay {
+  position: absolute;
+  top: 10%; /* 距离顶部10% */
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 40%; /* logo最大宽度也减小20%，从50%改为40% */
+  height: auto; /* 高度自动，保持比例 */
+  z-index: 1; /* 确保在背景图之上 */
+}
+
+.walkingNight {
+  background-color: #FFFFFF !important; /* 确保白色背景 */
+  background-image: url('/images/walkingnight.png');
+  background-size: auto 70%; /* 从90%减小到70%，缩小20% */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.boy2 {
+  background-color: #FFFFFF !important; /* 确保白色背景 */
+  background-image: url('/images/nightboy2.png');
+  background-size: auto 70%; /* 从90%减小到70%，缩小20% */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 添加SKY照片的样式 */
+.sky {
+  background-color: #FFFFFF !important; /* 确保白色背景 */
+  background-image: url('/images/sky.png'); /* SKY照片路径 */
+  background-size: auto 70%; /* 从90%减小到70%，缩小20% */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.eye {
+  background-color: #FFFFFF !important; /* 确保白色背景 */
+  background-image: url('/images/eye.png');
+  background-size: auto 70%; /* 从90%减小到70%，缩小20% */
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.end {
+  background-color: #FFFFFF !important; /* 确保白色背景 */
+  background-image: url('/images/end.jpg');
+  background-size: auto 70%; /* 与其他图片保持一致，设置为70% */
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+/* 为Section2标题添加样式 */
+.section2TitleContainer {
+  width: 100%;
+  min-height: 50vh; /* 减小最小高度，从60vh减至50vh */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  padding: 4rem 0 14vh; /* 进一步增加底部内边距，从10vh增加到14vh */
+  margin: 0;
+}
+
+.section3TitleContainer {
+  width: 100%;
+  min-height: 50vh; /* 与其他标题容器保持一致 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  padding: 4rem 0 8vh; /* 顶部内边距4rem，底部8vh */
+  margin: 0;
+}
+
+.classroom {
+  background-color: #FFFFFF !important; /* 确保白色背景 */
+  background-image: url('/images/classroom.png');
+  background-size: auto 70%; /* 从90%减小到70%，缩小20% */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 恢复：移除伪元素过渡和拖尾效果 */
+/*
+.section::before {
+  // ... (之前的代码)
+}
+
+.section::after {
+  // ... (之前的代码)
+}
+*/
+
+/* 你可以根据需要添加更复杂的动画和样式 */
+/* 例如，视差滚动背景、元素进入动画等 */
+
+/* 加载中状态的样式 */
+.loadingContainer {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+}
+
+.loadingText {
+  font-family: 'Bradley Hand ITC', 'Bradley Hand', cursive, 'Comic Sans MS', sans-serif;
+  font-size: 2rem;
+  color: #333;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+/* iPad特定的响应式样式 */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .heroSection {
+    min-height: 85vh;
+    gap: 18vh;
+  }
+  
+  .heroSection > div:first-child {
+    margin-top: 22vh;
+  }
+  
+  .textSection {
+    padding: 1.5rem 1rem 2.5rem;
+    margin-bottom: 25vh;
+    min-height: 45vh;
+  }
+  
+  .section {
+    height: 90vh;
+    margin: 12vh 0;
+  }
+  
+  .section2TitleContainer {
+    min-height: 45vh;
+    padding: 3.5rem 0;
+  }
+  
+  /* 修复图片在iPad上可能的尺寸问题 */
+  .town, .walkingNight, .boy2, .sky, .eye {
+    background-size: auto 65%;
+  }
+  
+  .townLogoOverlay {
+    max-width: 35%;
+  }
+}
+
+/* iPhone特定的响应式样式 */
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+  .heroSection {
+    min-height: 70vh;
+    gap: 12vh;
+  }
+  
+  .heroSection > div:first-child {
+    margin-top: 18vh;
+  }
+  
+  .textSection {
+    padding: 1rem 0.8rem 1.5rem;
+    margin-bottom: 20vh;
+    min-height: 40vh;
+  }
+  
+  .section {
+    height: 80vh;
+    margin: 8vh 0;
+  }
+  
+  .section2TitleContainer {
+    min-height: 35vh;
+    padding: 2rem 0;
+  }
+  
+  .town, .walkingNight, .boy2, .sky, .eye {
+    background-size: auto 60%;
+  }
+  
+  .townLogoOverlay {
+    max-width: 45%;
+  }
+}
+
+/* 确保所有图片区域的触摸事件正常工作 - 修复可能的iPad触摸问题 */
+.section, .titleContainer, .heroSection, .textSection {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}

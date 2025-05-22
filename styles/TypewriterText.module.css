@@ -1,0 +1,58 @@
+.textContainer {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 5%;
+  position: relative;
+}
+
+.typewriterText {
+  font-family: 'HGSMinchoE', 'MS Mincho', serif; /* 与原文本相同的字体 */
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: #333;
+  text-align: justify;
+  letter-spacing: 0.02em;
+  white-space: pre-line; /* 保留文本中的换行 */
+  font-weight: 600;
+}
+
+/* 添加一个闪烁的光标效果 */
+.typewriterText::after {
+  content: '|';
+  display: inline-block;
+  color: #333;
+  animation: blink 1s step-start infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* 响应式样式 */
+@media (max-width: 768px) {
+  .textContainer {
+    width: 85%;
+    padding: 0 7.5%;
+  }
+  
+  .typewriterText {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 480px) {
+  .textContainer {
+    width: 80%;
+    padding: 0 10%;
+  }
+  
+  .typewriterText {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+} 
